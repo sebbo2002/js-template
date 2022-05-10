@@ -1,10 +1,29 @@
 'use strict';
 
-import Magic from '../../src/lib';
-import assert = require('assert');
+import assert from 'assert';
+import { core, resetBuffer, getBuffer } from '../../src/lib/core-mock';
+import Action, { Context } from '../../src/lib';
 
-describe('Example', function () {
-    it('should work with integers', function () {
-        assert.strictEqual(Magic.double(2), 4);
+const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
+if (!token) {
+    throw new Error('Unable to run tests, please set GITHUB_TOKEN or GH_TOKEN environment variable');
+}
+
+describe('Action', function () {
+    this.timeout(10000);
+    beforeEach(function () {
+        resetBuffer();
+    });
+
+    it('should print the owner', async function () {
+        const context: Context = {
+            owner: 'sebbo2002',
+            repo: 'test'
+        };
+
+        await new Action(token, context, core).run();
+        assert.deepStrictEqual(getBuffer(), [
+            ['info', 'Hello sebbo2002 👋🏼']
+        ]);
     });
 });
