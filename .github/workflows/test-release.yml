@@ -69,7 +69,6 @@ jobs:
       - coverage
       - tests
       - license-checker
-      - docker-image
     if: ${{ github.repository != 'sebbo2002/js-template' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop') }}
     steps:
       - name: ☁️ Checkout Project
