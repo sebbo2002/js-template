@@ -1,6 +1,6 @@
 name: 'js-template'
 author: 'Sebastian Pekarek'
-description: 'Template I use for my GutHub Actions'
+description: 'Template I use for my GitHub Actions'
 inputs:
   token:
     description: 'GitHub token to be used'
