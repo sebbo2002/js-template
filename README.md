@@ -12,6 +12,10 @@ a template that I use to start new projects and services.
 - [ ] Set `develop` as default branch
 - [ ] Update `action.yml` ([Branding Cheat Sheet](https://actions-cool.github.io/github-action-branding/))
 - [ ] Go through repo settings
+    - [ ] Add `main` protected branch
+        - Require a pull request before merging
+        - Require `Release` status checks to pass before merging
+        - Lock branch
 
 
 ## ⚡️ Quick Start
